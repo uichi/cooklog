@@ -1,0 +1,86 @@
+<div class="site-mobile-menu site-navbar-target">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3"> <span class="icon-close2 js-menu-toggle"></span> </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+<div class="header-top">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-3 d-flex">
+        <a href="{% url 'recipe:home' %}" class="site-logo">
+          cooklog
+        </a>
+        <a href="#" class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black">
+          <span class="icon-menu h3"></span>
+        </a>
+      </div>
+      <div class="col-12 col-lg-9 ml-auto d-flex">
+        <div class="ml-md-auto top-social d-none d-lg-inline-block">
+<!--          <a href="#" class="d-inline-block p-3">-->
+<!--            <span class="icon-facebook"></span>-->
+<!--          </a>-->
+<!--          <a href="#" class="d-inline-block p-3">-->
+<!--            <span class="icon-twitter"></span>-->
+<!--          </a>-->
+<!--          <a href="#" class="d-inline-block p-3">-->
+<!--            <span class="icon-instagram"></span>-->
+<!--          </a>-->
+        </div>
+        <form action="#" class="search-form d-inline-block">
+<!--          <div class="d-flex">-->
+<!--            <input type="email" class="form-control" placeholder="検索...">-->
+<!--            <button type="submit" class="btn btn-secondary">-->
+<!--              <span class="icon-search"></span>-->
+<!--            </button>-->
+<!--          </div>-->
+        </form>
+        <div class="top-social d-none d-lg-inline-block">
+        </div>
+      </div>
+      <div class="col-6 d-block d-lg-none text-right"> </div>
+    </div>
+  </div>
+  <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
+    <div class="container">
+      <div class="d-flex align-items-center">
+        <div class="mr-auto">
+          <nav class="site-navigation position-relative text-right" role="navigation">
+            <ul class="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
+              <li> <a href="{% url 'recipe:category' 1 %}" class="nav-link text-left">野菜</a> </li>
+              <li> <a href="{% url 'recipe:category' 2 %}" class="nav-link text-left">お肉</a> </li>
+              <li> <a href="{% url 'recipe:category' 3 %}" class="nav-link text-left">魚介</a> </li>
+              <li> <a href="{% url 'recipe:category' 4 %}" class="nav-link text-left">ごはんもの</a> </li>
+              <li> <a href="{% url 'recipe:category' 5 %}" class="nav-link text-left">パスタ・グラタン</a> </li>
+              <li> <a href="{% url 'recipe:category' 6 %}" class="nav-link text-left">麺</a> </li>
+              <li> <a href="{% url 'recipe:category' 7 %}" class="nav-link text-left">サラダ</a> </li>
+              <li> <a href="{% url 'recipe:category' 8 %}" class="nav-link text-left">汁物・スープ</a> </li>
+              <li> <a href="{% url 'recipe:category' 9 %}" class="nav-link text-left">お菓子</a> </li>
+              <li> <a href="{% url 'recipe:category' 10 %}" class="nav-link text-left">パン</a> </li>
+              <li> <a href="{% url 'recipe:category' 11 %}" class="nav-link text-left">その他</a> </li>
+<!--              <li><a href="{% url 'contact:index' %}" class="nav-link text-left">お問い合わせ</a></li>-->
+              {% if user.is_authenticated %}
+                <li>
+                  <a class="hidden-md" href="{% url 'recipe:create' %}" class="">
+                    <span>投稿する</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'user:mypage' user.pk %}" class="">
+                    <span>マイページ</span>
+                  </a>
+                </li>
+              {% else %}
+                <li>
+                  <a href="{% url 'user:login' %}" class="">
+                    <span>ログイン</span>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

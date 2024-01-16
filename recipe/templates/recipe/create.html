@@ -1,0 +1,109 @@
+{% extends "dashboard.html" %}
+{% load markdown_extras %}
+{% load static %}
+{% block content %}
+{% include 'parts/dashboard/nav.html' %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-user">
+        <div class="card-header">
+          <h5 class="card-title">レシピ投稿</h5>
+        </div>
+        <div class="card-body">
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                 {% endfor %}
+            {% endif %}
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  {{form.title.label_tag}}
+                  {{form.title}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  {{form.category.label_tag}}
+                  {{form.category}}
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  {{form.tag.label_tag}}
+                  {{form.tag}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label for="inputFile">{{form.image.label}}</label>
+                  <div class="custom-file">
+                    {{form.image}}
+                    <label class="custom-file-label" for="inputFile" data-browse="参照">選択してください</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  {{form.publish_status.label_tag}}
+                  {{form.publish_status}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  {{form.cooking_time.label_tag}}
+                  {{form.cooking_time}}
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  {{form.serving.label_tag}}
+                  {{form.serving}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  {{form.overview.label_tag}}
+                  {{form.overview}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  {{form.body.label_tag}}
+                  {{form.body}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="update ml-auto mr-auto">
+                <button type="submit" class="btn btn-primary btn-round">保存</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+<script>
+  bsCustomFileInput.init();
+</script>
+{% include 'parts/dashboard/footer.html' %}
+{{ form.media }}
+{% endblock %}

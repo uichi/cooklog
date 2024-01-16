@@ -1,0 +1,79 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+{% include 'parts/dashboard/nav.html' %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card card-user">
+        <div class="image"> <img src="" alt=""> </div>
+        <div class="card-body">
+          <div class="author">
+            <a href="{% url 'user:profile' user.pk %}">
+              {% if object.image %}
+                <img class="avatar border-gray" src="{{ object.image.url }}" alt="image">
+              {% endif %}
+              <h5 class="title">{{ object.username }}</h5>
+            </a>
+          </div>
+          <p class="description text-center">{{ object.introduction }} </p>
+        </div>
+        <div class="card-footer">
+          <hr>
+          <div class="button-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                <h5>{{count_post_recipe}}<br><small>投稿数</small></h5>
+              </div>
+              <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+                <h5>{{count_liked}}<br><small>いいね</small></h5>
+              </div>
+<!--              <div class="col-lg-3 mr-auto">-->
+<!--                <h5>24<br><small>フォロー</small></h5>-->
+<!--              </div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card card-user">
+        <div class="card-header">
+          <h5 class="card-title">アカウント情報</h5>
+        </div>
+        <div class="card-body">
+          <form method="POST" action="">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="disabledUsernameTextInput">ユーザー名</label>
+                  <input type="text" id="disabledUsernameTextInput" class="form-control" placeholder="{{ user.username }}" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="disabledEmailTextInput">メールアドレス</label>
+                  <input type="text" id="disabledEmailTextInput" class="form-control" placeholder="{{ user.email }}" disabled>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="disabledIntroductionTextInput">自己紹介</label>
+                  <input type="text" id="disabledIntroductionTextInput" class="form-control" placeholder="{{ user.introduction }}" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="update ml-auto mr-auto"> <a href="{% url 'user:account_settings' user.pk %}" class="btn btn-primary btn-round">編集</a> </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'parts/dashboard/footer.html' %}
+{% endblock %}

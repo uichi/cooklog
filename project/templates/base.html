@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head><!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158931939-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-158931939-5');
+    </script>
+    <title>cooklog</title>
+    {% load static %}
+    <!-- Ordinary meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="エンジニア向けレシピ投稿サイト">
+    <meta property="og:title" content="cooklog" />
+    <meta property="og:site_name" content="cooklog" />
+    <meta property="og:description" content="エンジニア向けレシピ投稿サイト" />
+    <meta property="og:url" content="https://cooklog.xyz" />
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://cooklog.xyz/static/images/twitter-thumbnail.jpg" />
+    <meta property="og:locale" content="ja_JP" />
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="cooklog">
+    <meta itemprop="description" content="エンジニア向けレシピ投稿サイト">
+    <meta itemprop="image" content="https://cooklog.xyz/static/images/twitter-thumbnail.jpg">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://cooklog.xyz">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="cooklog">
+    <meta property="og:description" content="エンジニア向けレシピ投稿サイト">
+    <meta property="og:image" content="https://cooklog.xyz/static/images/twitter-thumbnail.jpg">
+     <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="cooklog">
+    <meta name="twitter:description" content="エンジニア向けレシピ投稿サイト">
+    <meta name="twitter:image" content="https://cooklog.xyz/static/images/twitter-thumbnail.jpg">
+    <link href="https://fonts.googleapis.com/css?family=B612+Mono|Cabin:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'meranda/fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'meranda/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'meranda/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'meranda/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'meranda/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'meranda/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'meranda/css/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'meranda/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'meranda/fonts/flaticon/font/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'meranda/css/aos.css' %}">
+    <link href="{% static 'meranda/css/jquery.mb.YTPlayer.min.css' %}" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'meranda/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_meranda.css' %}">
+<!--    <script data-ad-client="ca-pub-2041097090048634" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    {% include 'parts/recipe/nav.html' %}
+    {% block content %}
+    {% endblock %}
+<!--    <div class="site-section subscribe bg-light">-->
+<!--      <div class="container">-->
+<!--        <form action="#" class="row align-items-center">-->
+<!--          <div class="col-md-5 mr-auto">-->
+<!--            <h2>Newsletter Subcribe</h2>-->
+<!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis aspernatur ut at quae omnis pariatur obcaecati possimus nisi ea iste!</p>-->
+<!--          </div>-->
+<!--          <div class="col-md-6 ml-auto">-->
+<!--            <div class="d-flex"> <input type="email" class="form-control" placeholder="Enter your email"> <button type="submit" class="btn btn-secondary"><span class="icon-paper-plane"></span></button> </div>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="copyright">
+              <p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->Copyright &copy; cooklog
+                <script>
+                  document.write(new Date().getFullYear());
+                </script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>
+    <script src="{% static 'meranda/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'meranda/js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'meranda/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'meranda/js/popper.min.js' %}"></script>
+    <script src="{% static 'meranda/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'meranda/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'meranda/js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'meranda/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'meranda/js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'meranda/js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'meranda/js/aos.js' %}"></script>
+    <script src="{% static 'meranda/js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'meranda/js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'meranda/js/jquery.mb.YTPlayer.min.js' %}"></script>
+    <script src="{% static 'meranda/js/main.js' %}"></script>
+    <script>
+      function getCookie(name) {
+      var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
+      var csrftoken = getCookie('csrftoken');
+      function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+      $.ajaxSetup({
+        crossDomain: false, // obviates need for sameOrigin test
+        beforeSend: function (xhr, settings) {
+          if (!csrfSafeMethod(settings.type)) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+        }
+      });
+
+      $("#like-button").click(() => {
+        $.ajax({
+            url: $('#like-button').attr('data-href'),
+            method: 'POST',
+            timeout: 10000,
+            dataType: "json",
+        })
+        .done(function (data) {
+          if (!data.maked_account) {
+            alert("いいねをするにはアカウントを作成してください");
+            return;
+          }
+          if (data.liked) {
+            $("#like-button").addClass('active')
+          } else {
+            $("#like-button").removeClass('active')
+          }
+        })
+      });
+    </script>
+  </body>
+</html>

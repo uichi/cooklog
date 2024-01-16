@@ -1,0 +1,21 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+{% include 'parts/dashboard/nav.html' %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">仮アカウント登録ありがとうございます！</h5>
+        </div>
+        <div class="card-body">
+          <p>アカウント登録確認メールを送信しました。まだ、アカウント登録は完了していません。</p>
+          <p>確認メールに記載されているリンクから本登録を行ってください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'parts/dashboard/footer.html' %}
+{% endblock %}

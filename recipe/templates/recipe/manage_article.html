@@ -1,0 +1,82 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+{% include 'parts/dashboard/nav.html' %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">記事管理</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <tr>
+                  <th> タイトル </th>
+                  <th> カテゴリー </th>
+                  <th> 投稿日時 </th>
+                  <th> 更新日時 </th>
+                  <th> 投稿設定 </th>
+                  <th class="text-right"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for article in object_list %}
+                <tr>
+                  <td> {{ article.title }} </td>
+                  <td> {{ article.category }} </td>
+                  <td> {{ article.created_at }} </td>
+                  <td> {{ article.updated_at }} </td>
+                  {% if article.publish_status == 1 %}
+                    <td> 公開 </td>
+                  {% else %}
+                    <td> 非公開 </td>
+                  {% endif %}
+                  <td class="text-right">
+                    {% if article.publish_status == 1 %}
+                      <a href="{% url 'recipe:article' article.id %}" class="btn btn-primary btn-sm btn-edit">記事</a>
+                    {% endif %}
+                    <a href="{% url 'recipe:edit' article.id %}" class="btn btn-primary btn-sm btn-edit">編集</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="前へ">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            {% endif %}
+
+            {% for page_num in page_obj.paginator.page_range %}
+            {% if page_num == page_obj.number %}
+            <li class="page-item active">
+              <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="次へ">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'parts/dashboard/footer.html' %}
+{% endblock %}

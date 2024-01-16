@@ -1,0 +1,26 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+{% include 'parts/dashboard/nav.html' %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">アカウント登録ができました！</h5>
+        </div>
+        <div class="card-body">
+          <p>本登録が完了しました。</p>
+          <p>登録されたメールアドレスとパスワードでログインしてください。</p>
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              <a href="{% url 'user:login' %}" class="btn btn-primary">ログインする</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'parts/dashboard/footer.html' %}
+{% endblock %}

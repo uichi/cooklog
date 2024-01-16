@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% if article %}
+  <div class="site-wrap">
+    <div class="site-section py-0">
+      <div class="owl-carousel hero-slide owl-style">
+        {% for article in pickup_week_trend_articles %}
+          <div class="site-section">
+            <div class="container">
+              <div class="half-post-entry d-block d-lg-flex bg-light">
+                {% if article.image %}
+                  <div class="img-bg" style="background-image: url({{ article.image.url }})"></div>
+                {% endif %}
+                <div class="contents"> <span class="caption">今週のピックアップ！</span>
+                  <h2><a href="{% url 'recipe:article' article.id %}">{{ article.title }}</a></h2>
+                  <p class="mb-3">{{ article.overview }}</p>
+                  <div class="post-meta"> <span class="d-block"><a href="{% url 'user:profile' article.user.id %}">{{ article.user.username }}</a></span> <span class="date-read">{{ article.created_at | date }} <span class="mx-1">&bullet;</span>{{ article.cooking_time }} min <span class="mx-1">&bullet;</span> {{ article.category.name }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-12">
+                <div class="section-title">
+                  <h2>新着</h2>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="post-entry-1 bg-light">
+                  <a href="{% url 'recipe:article' article.first.id %}">
+                    {% if article.first.image %}
+                      <img src="{{article.first.image.url}}" alt="Image" class="img-fluid">
+                    {% endif %}
+                  </a>
+                  <h2><a href="{% url 'recipe:article' article.first.id %}">{{article.first.title}}</a></h2>
+                  <p>{{article.first.overview}}</p>
+                  <div class="post-meta"> <span class="d-block"><a href="{% url 'user:profile' article.first.user.id %}">{{ article.first.user.usrename}}</a></span> <span class="date-read">{{article.first.created_at | date}} <span class="mx-1">&bullet;</span> {{article.first.cooking_time}} min</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                {% for article in article.second %}
+                  <div class="post-entry-2 d-flex bg-light">
+                    <div class="contents">
+                      <h2><a href="{% url 'recipe:article' article.id %}">{{article.title}}</a></h2>
+                      <div class="post-meta"> <span class="d-block"><a href="{% url 'user:profile' article.user.id %}">{{ article.user.username }}</a></span> <span class="date-read">{{article.created_at | date}} <span class="mx-1">&bullet;</span> {{article.cooking_time}} min </span>
+                      </div>
+                    </div>
+                    <a href="{% url 'recipe:article' article.id %}" class="thumbnail" style="background-image: url({{article.image.url}})"></a>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="col-md-4">
+                {% for article in article.third %}
+                  <div class="post-entry-2 d-flex bg-light">
+                    <div class="contents">
+                      <h2><a href="{% url 'recipe:article' article.id %}">{{article.title}}</a></h2>
+                      <div class="post-meta"> <span class="d-block"><a href="{% url 'user:profile' article.user.id %}">{{user.username}}</a></span> <span class="date-read">{{article.created_at | date}} <span class="mx-1">&bullet;</span> {{article.cooking_time}} min </span>
+                      </div>
+                    </div>
+                    <a href="{% url 'recipe:article' article.id %}" class="thumbnail" style="background-image: url({{article.image.url}})"></a>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END section -->
+    <div class="py-0">
+      <div class="container">
+        {% for article in pickup_last_month_article %}
+          <div class="half-post-entry d-block d-lg-flex bg-light">
+            {% if article.image %}
+              <div class="img-bg" style="background-image: url({{ article.image.url }})"></div>
+            {% endif %}
+            <div class="contents"> <span class="caption">今月のピックアップ！</span>
+              <h2><a href="{% url 'recipe:article' article.id %}">{{ article.title }}</a></h2>
+              <p class="mb-3">{{ article.overview }}</p>
+              <div class="post-meta"> <span class="d-block"><a href="{% url 'user:profile' article.user.id %}">{{ article.user.username }}</a></span> <span class="date-read">{{ article.created_at }} <span class="mx-1">&bullet;</span> {{ article.cooking_time }} min <span class="mx-1">&bullet;</span> {{ article.category.name }}</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="section-title">
+              <h2>今日のトレンド</h2>
+            </div>
+            {% for article in today_trend_articles %}
+              <div class="post-entry-2 d-flex">
+                {% if article.image %}
+                  <a href="{% url 'recipe:article' article.id %}" class="thumbnail" style="background-image: url({{ article.image.url }})"></a>
+                {% endif %}
+                <div class="contents">
+                  <h2><a href="{% url 'recipe:article' article.id %}">{{ article.title }}</a></h2>
+                  <p class="mb-3">{{ article.overview }}</p>
+                  <div class="post-meta"> <span class="d-block"><a href="{% url 'user:profile' article.user.id %}">{{ article.user.username }}</a></span> <span class="date-read">{{ article.created_at | date }} <span class="mx-1">&bullet;</span>{{ article.cooking_time }} min <span class="mx-1">&bullet;</span> {{ article.category.name }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="col-lg-6">
+            <div class="section-title">
+              <h2>今週のトレンド</h2>
+            </div>
+            {% for article in week_trend_articles %}
+              <div class="post-entry-2 d-flex">
+                {% if article.image %}
+                  <a href="{% url 'recipe:article' article.id %}" class="thumbnail" style="background-image: url({{ article.image.url }})"></a>
+                {% endif %}
+                <div class="contents">
+                  <h2><a href="{% url 'recipe:article' article.id %}">{{ article.title }}</a></h2>
+                  <p class="mb-3">{{ article.overview }}</p>
+                  <div class="post-meta"> <span class="d-block"><a href="{% url 'user:profile' article.user.id %}">{{ article.user.username }}</a></span> <span class="date-read">{{ article.created_at | date }} <span class="mx-1">&bullet;</span>{{ article.cooking_time }} min <span class="mx-1">&bullet;</span> {{ article.category.name }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .site-wrap -->
+{% endif %}
+{% endblock %}

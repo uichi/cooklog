@@ -1,0 +1,77 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+{% include 'parts/dashboard/nav.html' %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card card-user">
+        <div class="image"> <img src="" alt=""> </div>
+        <div class="card-body">
+          <div class="author">
+            <a href="">
+              {% if user_info.image %}
+                <img class="avatar border-gray" src="{{ user_info.image.url }}" alt="image">
+              {% endif %}
+              <h5 class="title">{{ user_info.username }}</h5>
+            </a>
+          </div>
+          <p class="description text-center">{{ user_info.introduction }} </p>
+        </div>
+        <div class="card-footer">
+          <hr>
+          <div class="button-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                <h5>{{count_post_recipe}}<br><small>投稿数</small></h5>
+              </div>
+              <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+                <h5>{{count_liked}}<br><small>いいね</small></h5>
+              </div>
+<!--              <div class="col-lg-3 mr-auto">-->
+<!--                <h5>24<br><small>フォロー</small></h5>-->
+<!--              </div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card card-user">
+        <div class="card-header">
+          <h5 class="card-title">投稿記事</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <tr>
+                  <th> タイトル </th>
+                  <th> カテゴリー </th>
+                  <th> 投稿日 </th>
+                  <th> 更新日 </th>
+                  <th class="text-right"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for article in object_list %}
+                <tr>
+                  <td> {{ article.title }} </td>
+                  <td> {{ article.category }} </td>
+                  <td> {{ article.created_at | date }} </td>
+                  <td> {{ article.updated_at | date }} </td>
+                  <td class="text-right">
+                    <a href="{% url 'recipe:article' article.id %}" class="btn btn-primary btn-sm btn-edit">記事</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'parts/dashboard/footer.html' %}
+{% endblock %}
