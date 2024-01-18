@@ -167,3 +167,5 @@ MESSAGE_TAGS = {
     message_constants.SUCCESS: '',
     message_constants.INFO: '',
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
